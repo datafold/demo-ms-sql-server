@@ -12,7 +12,7 @@ BEGIN
 					PostalCode, 
 					REPLACE(ModelYear, '','', '''') as ModelYear, 
 					Make, 
-					REPLACE(Model, '' '', '''') as Model, 
+					Model, 
 					ElectricVehicleType, 
 					CAFVEligibility, 
 					ElectricRange, 
@@ -24,7 +24,7 @@ BEGIN
 					CensusTract
 				INTO ' + QUOTENAME(@database) + '.dbo.ElectricVehicles_Clean
 				FROM ' + QUOTENAME(@database) + '.dbo.ElectricVehicles 
-				WHERE 1=1 ' + @ExcludeClause;
+				WHERE 1=1 and PostalCode != 98953 ' + @ExcludeClause;
  	EXECUTE sp_executesql @Sql, N'@ExcludeClause nvarchar(30)', @ExcludeClause;
  end;
 
