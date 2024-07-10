@@ -6,7 +6,7 @@ BEGIN
 	SET @Sql = N'DROP TABLE IF EXISTS ' + QUOTENAME(@database) + '.dbo.ElectricVehicles_Practical_EV_Zips;
 		SELECT
 			PostalCode,
-			SUM(CASE WHEN ElectricRange > 200 THEN 1.0 ELSE 0.0 END)/COUNT(*) AS Practical_EV_Rate,
+			SUM(CASE WHEN ElectricRange > 10 THEN 1.0 ELSE 0.0 END)/COUNT(*) AS Practical_EV_Rate,
 			COUNT(*) as NumEVs
 		INTO ' + QUOTENAME(@database) + '.dbo.ElectricVehicles_Practical_EV_Zips 
 		FROM ' + QUOTENAME(@database) + '.dbo.ElectricVehicles 
