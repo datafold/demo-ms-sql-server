@@ -9,7 +9,7 @@ BEGIN
 					County, 
 					City, 
 					State, 
-					12345 as PostalCode, 
+					12346 as PostalCode, 
 					REPLACE(ModelYear, '','', '''') as ModelYear, 
 					Make, 
 					Model, 
